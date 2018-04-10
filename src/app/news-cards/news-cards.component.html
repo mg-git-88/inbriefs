@@ -1,0 +1,34 @@
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo logo-spacing">Inbriefs</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <a href="#">Local</a>
+      </li>
+      <li>
+        <a href="#">International</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <a href="#">Local</a>
+  </li>
+  <li>
+    <a href="#">International</a>
+  </li>
+</ul>
+
+<div class="news">
+  <div class="container">
+    <!-- <h2 class="center-align"> Today's News In Brief </h2> -->
+    <div *ngFor="let article of newsFeed.articles">
+      <app-news-card [NewsCard]="article"></app-news-card>
+    </div>
+  </div>
+</div>

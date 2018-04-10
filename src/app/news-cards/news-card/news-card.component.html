@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div *ngIf="NewsCard.urlToImage" class="card-image">
+        <img src="{{NewsCard.urlToImage}}">
+        <span class="card-title">
+          <b class="grey-text text-lighten-5">{{NewsCard.title}}</b>
+        </span>
+      </div>
+      <div *ngIf="!NewsCard.urlToImage" class="card-image">
+          <img src="https://www.hsjaa.com/images/joomlart/demo/default.jpg">
+          <span class="card-title">
+            <b class="grey-text text-lighten-5">{{NewsCard.title}}</b>
+          </span>
+        </div>
+      <div *ngIf="NewsCard.description" class="card-content">
+        <p>{{NewsCard.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="{{NewsCard.url}}">Read Full Story...</a>
+      </div>
+    </div>
+  </div>
+</div>
