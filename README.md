@@ -1,4 +1,8 @@
-# NewsFeed
+# inbriefs
+
+An app which displays the latest news in brief.
+
+Link to app: https://mg-git-88.github.io/inbriefs/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
