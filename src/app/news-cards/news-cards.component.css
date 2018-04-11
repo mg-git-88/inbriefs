@@ -9,3 +9,17 @@
 .container {
     margin: auto auto;
 }
+
+.news-category-heading {
+    margin-top: 10%;
+    margin-left: 10%;   
+}
+
+.news-category-heading-text {
+    font-weight: 600;
+    color: darkolivegreen;
+}
+
+a {
+    cursor: pointer;
+}

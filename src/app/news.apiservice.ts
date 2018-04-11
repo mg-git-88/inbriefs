@@ -1,15 +1,24 @@
 import { Http, HttpModule } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { RequestModel } from './news-model';
 
 @Injectable()
 export class NewsAPIService {
-    private apiUrl = 'https://newsapi.org/v2/top-headlines?' + 'country=in&' + 'apiKey=67a5f10a0e5543c78aa786902c18a9df';
-    constructor(private http: HttpClient) {
+    private apiUrl = 'https://newsapi.org/v2/'; // top-headlines?' + 'country=in&' + 'apiKey=' + environment.newsApiKey;
+    
+    constructor(private http: HttpClient) { }
 
-    }
-
-    getNewsFeed() {
-        return this.http.get(this.apiUrl);
+    getNewsFeed(requestParams: RequestModel) {
+        return this.http.get(this.apiUrl 
+            + requestParams.endpointType
+            + "?country="
+            + requestParams.country
+            + "&category="
+            + requestParams.category
+            + "&apiKey="
+            + environment.newsApiKey
+            );
     }
 }

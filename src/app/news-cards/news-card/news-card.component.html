@@ -3,21 +3,23 @@
     <div class="card">
       <div *ngIf="NewsCard.urlToImage" class="card-image">
         <img src="{{NewsCard.urlToImage}}">
+      </div>
+      <!-- <div>
         <span class="card-title">
           <b class="grey-text text-lighten-5">{{NewsCard.title}}</b>
         </span>
-      </div>
+      </div> -->
       <div *ngIf="!NewsCard.urlToImage" class="card-image">
-          <img src="https://www.hsjaa.com/images/joomlart/demo/default.jpg">
-          <span class="card-title">
-            <b class="grey-text text-lighten-5">{{NewsCard.title}}</b>
-          </span>
-        </div>
+        <img src="./assets/images/no-image.jpg">
+      </div>
+      <div class="card-title">
+          <span class="grey-text text-darken-5">{{NewsCard.title}}</span>
+      </div>
       <div *ngIf="NewsCard.description" class="card-content">
         <p>{{NewsCard.description}}</p>
       </div>
       <div class="card-action">
-        <a href="{{NewsCard.url}}">Read Full Story...</a>
+        <a class="blue-text text-darken-2" href="{{NewsCard.url}}">Read Full Story...</a>
       </div>
     </div>
   </div>

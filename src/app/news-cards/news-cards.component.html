@@ -1,4 +1,4 @@
-<nav class="nav-extended">
+<nav class="nav-extended blue accent-2">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo logo-spacing">Inbriefs</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
@@ -6,27 +6,94 @@
     </a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
-        <a href="#">Local</a>
+        <a (click)="getCategory('general')">
+          <span>General</span>
+        </a>
       </li>
       <li>
-        <a href="#">International</a>
+        <a (click)="getCategory('business')">
+          <span>Business</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="getCategory('entertainment')">
+          <span>Entertainment</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="getCategory('health')">
+          <span>Health</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="getCategory('science')">
+          <span>Science</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="getCategory('sports')">
+          <span>Sports</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="getCategory('technology')">
+          <span>Technology</span>
+        </a>
       </li>
     </ul>
   </div>
 </nav>
-
-<ul class="sidenav" id="mobile-demo">
-  <li>
-    <a href="#">Local</a>
-  </li>
-  <li>
-    <a href="#">International</a>
-  </li>
-</ul>
-
+<div class="sidenav" id="mobile-demo">
+  <div class="news-category-heading">
+    <span class="news-category-heading-text">Categories</span>
+  </div>
+  <ul>
+    <li>
+      <a (click)="getCategory('general')">
+        <i class="medium material-icons">filter_1</i>
+        <span>General</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('business')">
+        <i class="medium material-icons">filter_2</i>
+        <span>Business</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('entertainment')">
+        <i class="medium material-icons">filter_3</i>
+        <span>Entertainment</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('health')">
+        <i class="medium material-icons">filter_4</i>
+        <span>Health</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('science')">
+        <i class="medium material-icons">filter_5</i>
+        <span>Science</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('sports')">
+        <i class="medium material-icons">filter_6</i>
+        <span>Sports</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="getCategory('technology')">
+        <i class="medium material-icons">filter_7</i>
+        <span>Technology</span>
+      </a>
+    </li>
+  </ul>
+</div>
 <div class="news">
   <div class="container">
-    <!-- <h2 class="center-align"> Today's News In Brief </h2> -->
     <div *ngFor="let article of newsFeed.articles">
       <app-news-card [NewsCard]="article"></app-news-card>
     </div>
