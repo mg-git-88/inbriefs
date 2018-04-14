@@ -1,49 +1,60 @@
-<nav class="nav-extended blue accent-2">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo logo-spacing">Inbriefs</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <a (click)="getCategory('general')">
-          <span>General</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('business')">
-          <span>Business</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('entertainment')">
-          <span>Entertainment</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('health')">
-          <span>Health</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('science')">
-          <span>Science</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('sports')">
-          <span>Sports</span>
-        </a>
-      </li>
-      <li>
-        <a (click)="getCategory('technology')">
-          <span>Technology</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div class="navbar-fixed">
+  <nav class="nav-extended blue accent-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo logo-spacing">Inbriefs</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a (click)="getCategory('general')">
+            <span>General</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('business')">
+            <span>Business</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('entertainment')">
+            <span>Entertainment</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('health')">
+            <span>Health</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('science')">
+            <span>Science</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('sports')">
+            <span>Sports</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="getCategory('technology')">
+            <span>Technology</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 <div class="sidenav" id="mobile-demo">
+  <div class="nav-wrapper">
+    <div class="input-field">
+      <input id="search" type="search" [(ngModel)]="searchTxt" (change)="getSearchResult()" required>
+      <label class="label-icon" for="search">
+        <i class="material-icons">search</i>
+      </label>
+      <i class="material-icons" (click)="resetSearch()">close</i>
+    </div>
+  </div>
   <div class="news-category-heading">
     <span class="news-category-heading-text">Categories</span>
   </div>
@@ -92,10 +103,16 @@
     </li>
   </ul>
 </div>
+
 <div class="news">
   <div class="container">
-    <div *ngFor="let article of newsFeed.articles">
-      <app-news-card [NewsCard]="article"></app-news-card>
+    <div class="spinner" *ngIf="spinner">
+      <spinner></spinner>
+    </div>
+    <div *ngIf="!spinner">
+      <div *ngFor="let article of newsFeed.articles">
+        <app-news-card [NewsCard]="article"></app-news-card>
+      </div>
     </div>
   </div>
 </div>

@@ -23,3 +23,9 @@
 a {
     cursor: pointer;
 }
+
+.spinner {
+    position: fixed;
+    top: 48%;
+    left: 45%;
+}

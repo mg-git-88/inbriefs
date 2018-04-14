@@ -11,14 +11,19 @@ export class NewsAPIService {
     constructor(private http: HttpClient) { }
 
     getNewsFeed(requestParams: RequestModel) {
-        return this.http.get(this.apiUrl 
+        return requestParams.q ? (this.http.get(this.apiUrl 
+            + requestParams.endpointType
+            + "?q="
+            + requestParams.q
+            + "&apiKey="
+            + environment.newsApiKey)) : (this.http.get(this.apiUrl 
             + requestParams.endpointType
             + "?country="
             + requestParams.country
             + "&category="
             + requestParams.category
             + "&apiKey="
-            + environment.newsApiKey
+            + environment.newsApiKey)
             );
     }
 }
