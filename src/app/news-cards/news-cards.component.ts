@@ -44,6 +44,7 @@ export class NewsCardsComponent implements OnInit {
       this.newsFeed.totalResults = data['totalResults'];
       this.newsFeed.articles = data['articles'];
       this.spinner = false;
+      this.requestParams.q = null;
     });
   }
 
