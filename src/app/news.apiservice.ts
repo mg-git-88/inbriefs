@@ -15,8 +15,12 @@ export class NewsAPIService {
             + requestParams.endpointType
             + "?q="
             + requestParams.q
+            + "&language="
+            + requestParams.language
             + "&apiKey="
-            + environment.newsApiKey)) : (this.http.get(this.apiUrl 
+            + environment.newsApiKey)) 
+            : 
+            (this.http.get(this.apiUrl 
             + requestParams.endpointType
             + "?country="
             + requestParams.country

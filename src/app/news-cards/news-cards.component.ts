@@ -38,15 +38,18 @@ export class NewsCardsComponent implements OnInit {
     }
     else {
       this.requestParams.endpointType = "everything";
+      this.requestParams.language = "en";
     }
-    this.newsApiService.getNewsFeed(this.requestParams).subscribe((data) => {
-      this.newsFeed.status = data['status'];
-      this.newsFeed.totalResults = data['totalResults'];
-      this.newsFeed.articles = data['articles'];
+    this.newsApiService.getNewsFeed(this.requestParams).subscribe((response) => {
+      this.newsFeed.status = response['status'];
+      this.newsFeed.totalResults = response['totalResults'];
+      this.newsFeed.articles = response['articles'];
       this.spinner = false;
       this.requestParams.q = null;
-    });
-  }
+    },
+    (err) => M.toast({html: 'Something went wrong! Try again later...'})
+  );
+  } 
 
   getCategory(category) {
     this.fetchNews(category);
